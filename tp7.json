@@ -1,0 +1,31 @@
+/*
+CTP7: Reducir el porcentaje de P/R fusionadas sin push
+Descripción:
+
+Fomentar que los desarrolladores lancen las pruebas previas a abrir un P/R para asegurarse que pasan las pruebas antes de abrir el proceso  de revisión. Esta CTP se centra en medir el porcentaje de solicitudes fusionadas sin recibir ningún push.
+
+Requisitos previos: 
+
+Se llevan a cabo revisiones de código en el proceso de desarrollo.
+El equipo utiliza un sistema de gestión de solicitudes de pull requests que permite medir el tiempo hasta el primer push.
+
+Métricas:
+
+NSF: Número de solicitudes de fusión que se abren desde una rama que han tenido al menos NPTP7  pushes previos al pull request.
+NST: Número total de solicitudes de fusión.
+
+Objetivo:
+NSFNST UTP7
+Semanalmente por Equipo
+
+
+Parámetros:
+
+UTP7 = 90%
+NPTP7 = 2
+
+UTP7: representa el umbral de porcentaje máximo de P/R fusionadas sin push para ese equipo.
+NPTP7 : representa el número de pushes previos al pull request.
+
+
+*/

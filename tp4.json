@@ -1,0 +1,32 @@
+/*
+ITP4: Evitar complejidad alta de la Pull Request (IC)
+Descripción:
+
+	Evaluar el índice de complejidad de una solicitud de fusión es esencial para comprender la complejidad del cambio propuesto. Esta ITP se centra en medir la complejidad (p.e. “complejidad ciclomática promedio del proyecto”). 
+NOTA: Buscar un índice de complejidad que te indique el anidamiento.
+
+Requisitos previos: 
+
+Se deberá establecer el parámetro CCM para evaluar la complejidad de la Pull Request.
+El equipo debe establecer el valor máximo permitido (parámetro CCMMTP4) para ese tipo de complejidad.
+
+Métricas:
+
+NPRMI: Número de pull request por parte del miembro durante la última semana que cumplan que su IC ( CCM ) es menor o igual que el umbral CCMMTP4.
+NPRI: Número de pull request por parte del miembro durante la última semana.
+Objetivo:
+NPRMINPRI UTP4
+Semanalmente por Miembro
+
+
+Parámetros:
+
+CCM = “Complejidad ciclomática promedio del proyecto”
+CCMMTP4= 6
+UTP4= 0,90
+
+CCM representaría el índice de complejidad para la P/R que se quiere medir.
+CCMMTP4 representaría el umbral para el índice de complejidad.
+UTP4 sería umbral en tanto por uno deseado de casos que no superen el índice de complejidad establecido.
+
+*/

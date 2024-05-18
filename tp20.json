@@ -1,0 +1,26 @@
+/*
+CTP20: Agilizar la resolución de flujos de trabajo fallidos
+Descripción:
+
+Asegurarse de que los flujos de trabajo fallidos se resuelvan de inmediato es esencial para mantener un flujo de trabajo eficiente y prevenir problemas derivados de futuros flujos de trabajo defectuosas.
+
+Requisitos previos: 
+
+Se detecta un flujo de trabajo con errores en cualquier rama remota.
+
+Métricas:
+
+RTBW (Resolution Time for Broken Workflow): El tiempo que lleva resolver un error en un flujo de trabajo fallido, medido en horas.
+
+
+Objetivo:
+
+RTBW< NMHTP20
+Semanalmente por Equipo
+
+Parámetros:
+
+NMHTP20= 48h
+
+NMHTP20 representa el número máximo de horas que se debe tardar para resolver un flujo de trabajo fallido.
+*/	

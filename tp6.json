@@ -1,0 +1,34 @@
+/*
+CTP6: Evitar revisiones de P/R asíncronas.
+
+Descripción:
+
+	Cuando se abre una P/R se debería comenzar lo antes posible la revisión. Si transcurre demasiado tiempo significa que las actividades de abrir P/R y de revisar P/R se están haciendo asíncronas.
+Este TP se centra en acortar el tiempo desde que se abre la P/R hasta que se produce un primer comentario derivado de la revisión de la P/R.
+
+Requisitos previos: 
+
+Establecer un protocolo de comentarios en las P/R, hay, al menos, 2 alternativas:
+Es obligatorio hacer un primer comentario al comienzo de la revisión: p.e. “Ok, me pongo a revisar”.
+Es obligatorio hacer un primer comentario al finalizar la revisión: p.e. “Ya la he visto y me parece Ok”.
+Se llevan a cabo revisiones de código en el proceso de desarrollo.
+El equipo utiliza un sistema de gestión de solicitudes de pull requests que permite medir el tiempo hasta el primer comentario.
+
+Métricas:
+
+NPRAC: Número  de  P/R abiertas que cumplen que han recibido el primer comentario en menos de TLTP6 (contado desde que se abre la P/R).
+NPRA: Número total de P/R abiertas.
+
+
+Objetivo:
+NPRACNPRA UTP6
+Semanalmente por Equipo
+
+Parámetros:
+
+UTP6= 90%
+TLTP6 = 2h
+
+TLTP6 representaría tiempo límite para recibir el primer comentario.
+UTP6 representaría el umbral de porcentaje mínimo exigido.
+*/

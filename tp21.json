@@ -1,0 +1,30 @@
+/*
+CTP21: Verificar la ausencia de Bug Issues sin Pruebas Asociadas
+Descripción:
+
+Asegurarse de que no haya problemas de calidad relacionados con bugs sin pruebas asociadas es esencial para mantener la integridad del código. Esta CTP se centra en medir la cantidad de problemas (bugs) sin pruebas asociadas.
+
+Requisitos previos: 
+
+Se utiliza un sistema de seguimiento de problemas (bug tracking).
+Se relacionan los bugs con las pruebas correspondientes.
+Esta relación se hará llamando al test del mismo modo que se llama la issue de tipo bug que se testea.
+
+Métricas:
+
+NBWT (Number of Bug Issues without Test Associated): El número de problemas (bugs) que no tienen pruebas asociadas.
+
+Objetivo:
+
+NBWT ≤ MNWTTP21
+Semanalmente por Equipo
+
+Posibles falsos negativos:
+Un bug que no tiene pruebas asociadas, podría ser debido a razones fuera del alcance de las pruebas automatizadas.
+
+Parámetros:
+
+MNBWTTP21 = 1
+
+MNBWTTP21 (Maximum Number of Bug Issues without Test Associated) representa el número máximo de bugs que pueden estar sin tener un test asociado.
+*/

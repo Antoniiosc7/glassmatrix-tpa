@@ -1,0 +1,30 @@
+/*
+CTP24: Reducir tiempo de vida de bugs.
+Descripción:
+
+Garantizar la pronta restauración del servicio en caso de interrupciones es esencial para minimizar el impacto en los usuarios. Este CTP se centra en medir el tiempo promedio de vida de los bugs desde su creación hasta su resolución.
+
+Requisitos previos: 
+
+Se utiliza un sistema de seguimiento de incidentes que permite medir el tiempo de vida de los bugs.
+Se realiza un seguimiento del tiempo desde la creación hasta la resolución de los bugs.
+
+Métricas:
+
+NB (Number of bugs): Número de bugs cerrados durante el periodo.
+BBT (Bugs lifetime beyond the threshold): Número de ocasiones en el que el tiempo promedio de vida de los bugs, medido en horas, supera el NMHBTP24 (Número máximo de horas que puede estar sin solucionarse).
+
+Objetivo:
+
+BBT NB  x 100 ≤  UTP24
+Semanalmente por Equipo
+
+Parámetros:
+
+NMHBTP24= 72
+UTP24= 90
+
+NMHBTP24 representa el número máximo de horas que el bug podría existir sin solucionarse.
+UTP23 sería el umbral de casos en los que se espera que se cumpla la condición anterior.
+
+*/

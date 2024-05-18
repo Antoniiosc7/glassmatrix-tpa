@@ -1,0 +1,27 @@
+/*
+CTP14: Desencadenar flujos de trabajo
+Descripción:
+
+Cuando un desarrollador realiza un push, se debe desencadenar automáticamente un flujo de trabajo del software del software. Este flujo incluye tareas como compilar/analizar el código, o la ejecución de bloques de tests. 
+
+Requisitos previos: 
+
+El proyecto utiliza pruebas de integración continua (CI) que se ejecutan en la rama principal.
+Se realiza una PR en la rama principal.
+
+Métricas:
+
+NPR (Number of PR): Número de pull request realizados en la rama principal.
+NW (Number of Worflow): Número de flujos de trabajo desencadenados automáticamente.
+
+Objetivo:
+NWNPRx 100 > UTP14
+Semanalmente por Equipo
+
+Parámetros:
+
+UTP14= 90
+
+UTP14 representa el umbral mínimo de flujos de trabajo que se deberán de ejecutar automáticamente con respecto al total de pull requests realizadas en la rama principal.
+
+*/

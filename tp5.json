@@ -1,0 +1,25 @@
+/*
+CTP5: Evitar un número alto de ramas activas en el repositorio de la aplicación
+Descripción:
+
+Gestionar eficientemente el número de ramas activas en el repositorio es crucial para mantener un entorno de desarrollo ordenado. Esta ITP se centra en el número de ramas activas y establece un límite basado en el tamaño del equipo.
+
+Requisitos previos: 
+
+El equipo utiliza un flujo de trabajo basado en ramas.
+Se establece una rama principal o rama común (Main/Master/Develop normalmente).
+
+Métricas:
+
+NM: El total de miembros en el equipo.
+NRA: El número de ramas activas  (ha hecho algún push durante la semana) en el repositorio.
+
+Objetivo:
+NRA ≤ NM+1
+Semanalmente por Equipo
+
+Posibles falsos negativos:
+Se crean ramas temporales comunes para tareas específicas.
+
+
+*/

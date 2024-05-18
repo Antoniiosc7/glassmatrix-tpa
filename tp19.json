@@ -1,0 +1,28 @@
+/*
+CTP19: Evitar subidas con errores
+Descripción:
+
+Garantizar la eficiencia de los flujos de trabajo es esencial para mantener un flujo de trabajo eficiente y confiable. Este TP se enfoca en la proporción de flujos de trabajo que se ejecutan con éxito en relación con el total de flujos de trabajo desencadenados.
+
+Requisitos previos: 
+
+Se utiliza un proceso de integración continua (CI) que ejecuta pruebas automatizadas.
+Se realiza un push en la rama principal.
+
+Métricas:
+
+NW (Number of Workflows): El número de flujos de trabajos desencadenados automáticamente.
+NSW (Number of Successful Workflows): El número de flujos de trabajo que se ejecutaron con éxito.
+
+Objetivo:
+
+NSWNW ≤  MNWETP19
+Semanalmente por Equipo
+
+Parámetros:
+
+MNWETP19= 3
+
+MNWETP19 (Maximum number of workflows with errors): Representa el objetivo a cumplir de número de flujos de trabajo fallidos en la última semana.
+
+*/

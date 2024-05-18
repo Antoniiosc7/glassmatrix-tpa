@@ -1,0 +1,26 @@
+/*
+CTP22: Reducir tiempos entre una pull request y la ejecución del workflow
+Descripción:
+
+Garantizar plazos cortos entre cambios regulares y de emergencia es esencial para mantener un proceso de desarrollo ágil y eficiente. Esta CTP se centra en medir el tiempo entre que se realiza un push o se cierra una pull request en la rama principal y el tiempo que tarda en ejecutarse el flujo de trabajo.
+
+Requisitos previos: 
+
+Se utiliza un sistema de control de versiones que permite identificar pull request en la rama principal.
+
+Métricas:
+
+DPRP (Duration in seconds between push in master and release in production): El tiempo que transcurre entre un push o merge de una P/R en la rama principal y el fin del flujo de trabajo, medido en segundos.
+
+Objetivo:
+
+DPRP ≤ TFTTP22
+Semanalmente por Equipo
+
+Parámetros:
+
+TFTTP22= 3600s
+
+TFTTP22 representa el número máximo de segundos que puede transcurrir entre que se hace un push o se cierra una pull request en la rama principal y el término del flujo de trabajo.
+
+*/

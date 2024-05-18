@@ -1,0 +1,30 @@
+/*
+CTP8: Evitar confirmaciones de código sin ejecutar pruebas automáticas antes
+Descripción:
+
+Evitar la ejecución de pruebas automáticas antes de confirmar el código puede afectar la calidad del software. Esta CTP se centra en el número “pushes” antes de una Pull Request y establece un objetivo para garantizar la ejecución de pruebas (derivadas de la ejecución de un push desde la rama local a la rama remota de la característica).
+
+Requisitos previos: 
+
+El equipo tiene un proceso establecido para ejecutar pruebas automáticas antes de confirmar el código.
+Se cuenta con pruebas automatizadas que pueden ser ejecutadas en la rama en la que se trabaja.
+
+Métricas:
+
+NRAP:  Número de ramas “activas” con P/R que han tenido más de NPTP8 Push antes del P/R.
+NRA:  Número de ramas “activas” con P/R.
+
+Objetivo:
+NRAPNRA x100> UTP8
+Semanalmente por Equipo
+
+
+Parámetros:
+
+UTP8= 90%
+NPTP8= 2
+
+UTP8: representa el umbral de tanto por uno mínimo.
+NPTP8: número de Push mínimos antes del P/R.
+
+*/

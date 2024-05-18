@@ -1,0 +1,31 @@
+/*
+ITP16: Lanzar pruebas automatizadas tras cada push
+Descripción:
+
+Cuando un desarrollador realiza un push, se deben ejecutar pruebas automatizadas para evaluar el estado del código antes de hacer push. Esta práctica tiene como objetivo proporcionar a los desarrolladores un feedback rápido sobre la calidad de los cambios en su código.
+
+Requisitos previos: 
+
+Se cuenta con una serie de tests que pueden ser ejecutados en la rama en la que se trabaja.
+Se realiza un push.
+
+Métricas:
+
+NP (Number of Push): El número de pushes realizados en la rama principal.
+NTT (Number of Test Triggered): La cantidad de lanzamientos del conjunto de tests.
+
+Objetivo:
+NPNTT≥ MBTTTP16
+Semanalmente por Miembro
+
+Posibles falsos negativos:
+Se realiza un push.
+No se ejecutan las pruebas automatizadas en el mismo push, aunque deberían haberse ejecutado.
+No hay ningún error porque no se han lanzado los tests y se procede al push.
+Parámetros:
+
+MBTTTP16= 1
+
+MBTTTP16 (Minimum block test triggered): Representa la cantidad mínima de bloques de tests que se deben ejecutar tras realizar un push.
+
+*/

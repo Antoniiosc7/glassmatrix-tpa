@@ -1,0 +1,28 @@
+/*
+CTP11: Evitar periodos largos de revisión de código
+Descripción:
+
+Evaluar la eficiencia del proceso de revisión de código es fundamental para garantizar una rápida integración de cambios y una respuesta ágil a las solicitudes de fusión. Esta CTP se centra en el tiempo que lleva aprobar los cambios de código durante el proceso de revisión.
+
+Requisitos previos: 
+
+Existe un proceso formal de revisión de código en el equipo.
+Hay establecidas pautas claras para la aprobación de cambios durante la revisión de código.
+
+Métricas:
+
+TMR: Tiempo medio de todas las reviews (desde que se asigna hasta que se aprueba) de las P/R del equipo durante la última semana
+
+Objetivo:
+TMR<TLTP11
+Semanalmente por Equipo
+
+Posibles falsos positivos:
+Se implementan procesos automáticos que fusionan ramas sin una revisión humana adecuada.
+
+Parámetros:
+
+TLTP11= 1 día
+
+TLTP11: representa el límite de tiempo medio aceptado.
+*/

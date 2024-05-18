@@ -1,0 +1,31 @@
+/*
+CTP13: Fusionar con la rama principal a la frecuencia establecida
+Descripción:
+
+Garantizar una fusión constante de cambios en la rama principal (trunk) es esencial para mantener un flujo de desarrollo fluido y prevenir conflictos significativos. Este proceso se enfoca en la cantidad de fusiones realizadas en la rama principal en relación con el tamaño del equipo.
+
+Requisitos previos: 
+
+Se sigue un flujo de trabajo basado en ramas.
+El proyecto utiliza la rama principal (trunk) como la rama principal de desarrollo.
+
+Métricas:
+NFR: Número de fusiones realizadas desde una rama activa a la rama principal.
+NM: Número de miembros del equipo.
+
+
+Objetivo:
+NFRNMFMTP13
+Semanalmente por Equipo
+
+	El objetivo de este TP es que al menos cada miembro del equipo haya hecho una fusión de su rama a la rama principal.
+Posibles falsos positivos:
+Un falso positivo puede ser que se realicen numerosas fusiones pero que estas sean triviales. Es decir, pequeños cambios que no sean nada significativos.
+La métrica no refleja los problemas de calidad si se introducen errores mediante prácticas inadecuadas de fusión.
+Parámetros:
+
+FMTP13= 1
+
+
+FMTP13: indicador de fusiones mínimas esperadas con la rama principal.
+*/

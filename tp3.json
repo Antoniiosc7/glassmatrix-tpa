@@ -1,0 +1,24 @@
+/*
+ITP3: Evitar ramas activas sin Pull Request 
+Descripción:
+
+Para mantener un flujo de trabajo basado en metodologías ágiles es importante que haya pull requests constantemente. Por ello, esta ITP se centra en ver si hay ramas activas sin tener ninguna solicitud de pull request.
+
+Métricas:
+
+NRAI: Número de ramas activas por parte del miembro (ha hecho algún push durante periodo PMVTP3) que tengan una Pull Request (abierta o cerrada) durante el periodo PMVTP3.
+NRATI: Número de ramas activas totales del miembro durante el periodo xTP3.
+
+Objetivo:
+NRAINRATI = UTP3
+Cada PMVTP3 por Miembro
+
+
+Parámetros:
+
+PMVTP3= 1 sprint
+UTP3= 1
+
+PMVTP3 representaría el periodo de “máximo” de vida que esperamos de una rama activa.
+UTP3 sería el umbral en tanto por uno de casos de margen de error.
+*/

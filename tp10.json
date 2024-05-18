@@ -1,0 +1,30 @@
+/*
+CTP10: Evitar que las P/R estén sin revisor durante mucho tiempo
+Descripción:
+
+Fomentar que los desarrolladores siguen a un revisor de la Pull Request en el mismo momento en el que se abre dicha P/R.
+
+Requisitos previos: 
+
+Se llevan a cabo revisiones de código en el proceso de desarrollo.
+El equipo utiliza un sistema de gestión de solicitudes de pull requests.
+Se abre una pull request.
+
+Métricas:
+
+NPR (Number of PR): Número de pull request realizados en la rama principal.
+NPRW: (Number of PR without reviewer): Número de pull request que estuvieron sin revisor los primeros .
+
+Objetivo:
+NPRWNPR x 100 ≤ UTP10
+Semanalmente por Equipo
+
+
+Parámetros:
+
+UTP10 = 10%
+MTWRTP10 = 10mins
+
+UT10: representa el umbral de porcentaje máximo de P/R que se han creado sin tener a un revisor asignado
+MTWRTP10 (Maximum time without reviewer): Representa el máximo tiempo que puede estar un P/R sin revisor desde que se crea.
+*/

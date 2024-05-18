@@ -1,0 +1,29 @@
+/*
+CTP12: Controlar el tiempo de ejecución de pruebas
+Descripción:
+
+Garantizar que las pruebas automatizadas no tomen demasiado tiempo en ejecutarse es crucial para mantener un ciclo de retroalimentación rápido. Esta práctica se centra en la duración máxima permitida para la suite de pruebas automatizadas ejecutadas en la integración continua (CI).
+
+
+Requisitos previos: 
+
+El proyecto cuenta con pruebas automatizadas que se ejecutan automáticamente.
+El conjunto de pruebas tiene una duración máxima definida.
+
+Métricas:
+
+TPmax: El tiempo total que tarda en ejecutarse todo el conjunto de pruebas del proceso.
+
+Objetivo:
+TPmax < UTP12
+Semanalmente por Equipo
+
+Posibles falsos positivos:
+Omisión de tests por mala configuración haciendo que las pruebas acaben en un menor tiempo.
+
+Parámetros:
+
+UTP12= 10 minutos
+
+UTP12: representa el umbral de tiempo máximo permitido para la ejecución de las pruebas.
+*/

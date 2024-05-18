@@ -1,0 +1,28 @@
+/*
+CTP23: Evitar releases con bugs.
+Descripción:
+
+Garantizar bajas tasas de fallos en los cambios es esencial para mantener la estabilidad y confiabilidad del sistema. Esta CTP se centra en medir la proporción de cambios que resultan en degradación del servicio y requieren acciones correctivas.
+
+Requisitos previos: 
+
+Se utiliza un sistema de seguimiento de incidentes que permite identificar fallos en el servicio.
+Se relacionan los fallos con los cambios correspondientes.
+
+Métricas:
+
+NRDUS (Number of Releases with an Associated Bug Derived from a User Story implemented in that release): El número de releases con un bug derivado de una User Story implementada en esa release.
+TNR (Total Number of Releases): El número total de releases.
+
+Objetivo:
+
+NRDUS TNR x 100< UTP23
+Mensualmente por el Equipo
+
+Parámetros:
+
+UTP23= 25
+
+UTP23 representa el umbral máximo de releases que pueden ser implementadas con bugs. 
+
+*/

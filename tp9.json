@@ -1,0 +1,29 @@
+/*
+CTP9: Evitar un número alto de P/R rechazadas
+Descripción:
+
+Mantener un porcentaje adecuado de fusión de las ramas de característica sobre la rama principal es esencial para integrar cambios de manera eficiente y prevenir la acumulación de código en otras ramas. Esta métrica se centra en la proporción de P/R que se han fusionado con éxito en la rama principal (es decir, que se han aceptado).
+
+Requisitos previos: 
+
+Tener establecido cuándo y cómo se deben fusionar las ramas en la rama principal.
+Realizar un pull request.
+
+Métricas:
+
+NPRR: Número de P/R rechazadas en la rama principal.
+NPR: Número total de pull request en la rama principal.
+
+Objetivo:
+NPRRNPR x100 < UTP9
+Semanalmente por Equipo
+
+Posibles falsos positivos:
+Fusión de ramas experimentales o temporales que no deberían afectar el porcentaje total.
+Parámetros:
+
+UTP9 = 25%
+
+UTP9: representa el umbral de porcentaje mínimo de ramas que cumplen con la frecuencia establecida.
+
+*/

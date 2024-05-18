@@ -1,0 +1,28 @@
+/*
+CTP17: Comprobar automáticamente cada Pull Request 
+Descripción:
+
+Garantizar la eficiencia de las pruebas automatizadas es crucial para obtener una retroalimentación rápida sobre la calidad del código. Este TP se enfoca en la proporción de pruebas automatizadas que se ejecutan con éxito en relación con el total de pruebas ejecutadas.
+
+Requisitos previos: 
+
+Se utiliza un proceso de integración continua (CI) que ejecuta pruebas automatizadas.
+Se realiza un push o una Pull Request en la rama principal.
+
+Métricas:
+
+NTT (Number of Test Triggered): Cantidad de tests ejecutados.
+NSTT (Number of Successful Test Triggered): La cantidad de lanzamientos del conjunto de tests que han tenido un resultado exitoso
+
+Objetivo:
+
+NSSTNTTx100> UTP17
+Semanalmente por Equipo
+
+Parámetros:
+
+UTP17= 90%
+
+UTP17 representa el umbral mínimo de tests que deberán superar las pruebas automatizadas desencadenadas automáticamente al realizar un push o pull request.
+
+*/
