@@ -5,7 +5,7 @@ Descripción:
 Garantizar que las pruebas automatizadas no tomen demasiado tiempo en ejecutarse es crucial para mantener un ciclo de retroalimentación rápido. Esta práctica se centra en la duración máxima permitida para la suite de pruebas automatizadas ejecutadas en la integración continua (CI).
 
 
-Requisitos previos: 
+Requisitos previos:
 
 El proyecto cuenta con pruebas automatizadas que se ejecutan automáticamente.
 El conjunto de pruebas tiene una duración máxima definida.
@@ -27,3 +27,48 @@ UTP12= 10 minutos
 
 UTP12: representa el umbral de tiempo máximo permitido para la ejecución de las pruebas.
 */
+
+{
+  "config": {
+    "scopeManager": "http://host.docker.internal:5700/api/v1/scopes/development"
+  },
+  "metric": {
+    "computing": "actual",
+    "element": "number",
+    "event": {
+      "githubGQL": {
+        "custom": {
+          "type": "graphQL",
+          "title": "Get test execution time",
+          "steps": {
+            "0": {
+              "type": "queryGetObject",
+              "query": "{\r\n  repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {\r\n    actions {\r\n      runs(first: 100) {\r\n        nodes {\r\n          workflowRunDurationSeconds\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+            },
+            "1": {
+              "type": "objectGetSubObjects",
+              "location": "data.repository.actions.runs.nodes"
+            },
+            "2": {
+              "type": "runScript",
+              "variables": {},
+              "script": "module.exports.generic = function getTestExecutionTime(inputData,variables)  {\r\n    let executionTimes = []\r\n    let evidences = []\r\n    if (inputData) {\r\n        let iterableData = Array.isArray(inputData) ? inputData : Object.values(inputData);\r\n        for (let item of iterableData) {\r\n\r\n            let executionTime = item.workflowRunDurationSeconds / 60;\r\n            if (executionTime <= variables.UTP12) {\r\n                executionTimes.push(executionTime);\r\n                if (item.name) {\r\n                    evidences.push({\r\n                        'test': item.name,\r\n                        'executionTime': executionTime\r\n                    });\r\n                }\r\n            }\r\n        }\r\n    }\r\n    if (!Array.isArray(evidences)) {\r\n        evidences = [];\r\n    }\r\n    return { 'executionTimes': executionTimes, 'evidences': evidences };\r\n}"            }
+          }
+        }
+      }
+    },
+    "scope": {
+      "project": "TFG-GH-antoniiosc7_Glassmatrix",
+      "class": "TFG",
+      "member": "*"
+    },
+    "window": {
+      "type": "static",
+      "period": "hourly",
+      "initial": "2024-05-12T17:00:00.000Z",
+      "from": "2024-05-12T17:00:00.000Z",
+      "end": "2024-05-13T17:59:00.000Z",
+      "timeZone": "America/Los_Angeles"
+    }
+  }
+}

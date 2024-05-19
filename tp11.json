@@ -26,3 +26,49 @@ TLTP11= 1 día
 
 TLTP11: representa el límite de tiempo medio aceptado.
 */
+
+{
+  "config": {
+    "scopeManager": "http://host.docker.internal:5700/api/v1/scopes/development"
+  },
+  "metric": {
+    "computing": "actual",
+    "element": "number",
+    "event": {
+      "githubGQL": {
+        "custom": {
+          "type": "graphQL",
+          "title": "Get pull requests review time",
+          "steps": {
+            "0": {
+              "type": "queryGetObject",
+              "query": "{\r\n  repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {\r\n    pullRequests(first: 100) {\r\n      pageInfo {\r\n        endCursor\r\n        hasNextPage\r\n      }\r\n      nodes {\r\n        bodyText\r\n        number\r\n        state\r\n        createdAt\r\n        author {\r\n          login\r\n        }\r\n        mergedAt\r\n        mergedBy {\r\n          login\r\n        }\r\n        additions\r\n        comments(first: 50) {\r\n          nodes {\r\n            author {\r\n              login\r\n            }\r\n            bodyText\r\n            createdAt\r\n          }\r\n        }\r\n        reviews(first: 30) {\r\n          nodes {\r\n            state\r\n            createdAt\r\n            bodyText\r\n            author {\r\n              login\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+            },
+            "1": {
+              "type": "objectGetSubObjects",
+              "location": "data.repository.pullRequests.nodes"
+            },
+            "2": {
+              "type": "runScript",
+              "variables": {},
+              "script": "module.exports.generic = function getPullRequestsReviewTime(inputData,variables)  {\r\n    let reviewTimes = []\r\n    for (let pullRequest of inputData) {\r\n\r\n        if (pullRequest.author.login === '%MEMBER.github.username%') continue;\r\n\r\n        if (pullRequest.state === 'MERGED') {\r\n            for (let review of pullRequest.reviews.nodes) {\r\n                if (review.state === 'APPROVED') {\r\n                    let reviewTime = (new Date(review.createdAt) - new Date(pullRequest.createdAt)) / 60000;\r\n                    reviewTimes.push(reviewTime);\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n    return reviewTimes;\r\n}"
+            }
+          }
+        }
+      }
+    },
+    "scope": {
+      "project": "TFG-GH-antoniiosc7_Glassmatrix",
+      "class": "TFG",
+      "member": "*"
+    },
+    "window": {
+      "type": "static",
+      "period": "hourly",
+      "initial": "2024-05-12T17:00:00.000Z",
+      "from": "2024-05-12T17:00:00.000Z",
+      "end": "2024-05-13T17:59:00.000Z",
+      "timeZone": "America/Los_Angeles"
+    }
+  }
+}
