@@ -26,3 +26,49 @@ UTP17= 90%
 UTP17 representa el umbral mínimo de tests que deberán superar las pruebas automatizadas desencadenadas automáticamente al realizar un push o pull request.
 
 */
+
+{
+  "config": {
+    "scopeManager": "http://host.docker.internal:5700/api/v1/scopes/development"
+  },
+  "metric": {
+    "computing": "actual",
+    "element": "number",
+    "event": {
+      "githubGQL": {
+        "custom": {
+          "type": "graphQL",
+          "title": "Get workflow runs for pull requests",
+          "steps": {
+            "0": {
+              "type": "queryGetObject",
+              "query": "{\r\n  repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {\r\n    pullRequests(first: 100) {\r\n      nodes {\r\n        commits(first: 5) {\r\n          edges {\r\n            node {\r\n              commit {\r\n                checkSuites(first: 5) {\r\n                  nodes {\r\n                    workflowRun {\r\n                      url\r\n                      workflow {\r\n                        name\r\n                      }\r\n                    }\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+            },
+            "1": {
+              "type": "objectGetSubObjects",
+              "location": "data.repository.pullRequests.nodes"
+            },
+            "2": {
+              "type": "runScript",
+              "variables": {},
+              "script": "module.exports.generic = function getWorkflowRuns(inputData,variables)  {\r\n    let successfulWorkflowRuns = 0;\r\n    let totalWorkflowRuns = 0;\r\n    for (let pullRequest of inputData) {\r\n        for (let commit of pullRequest.commits.edges) {\r\n            for (let checkSuite of commit.node.commit.checkSuites.nodes) {\r\n                if (checkSuite.workflowRun) {\r\n                    totalWorkflowRuns++;\r\n                    if (checkSuite.workflowRun.conclusion === 'success') {\r\n                        successfulWorkflowRuns++;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n    return successfulWorkflowRuns / totalWorkflowRuns * 100;\r\n}"
+            }
+          }
+        }
+      }
+    },
+    "scope": {
+      "project": "TFG-GH-antoniiosc7_Glassmatrix",
+      "class": "TFG",
+      "member": "*"
+    },
+    "window": {
+      "type": "static",
+      "period": "hourly",
+      "initial": "2024-05-19T01:00:00.000Z",
+      "from": "2024-05-19T01:00:00.000Z",
+      "end": "2024-05-19T01:59:00.000Z",
+      "timeZone": "America/Los_Angeles"
+    }
+  }
+}

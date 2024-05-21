@@ -26,3 +26,40 @@ MNWETP19= 3
 MNWETP19 (Maximum number of workflows with errors): Representa el objetivo a cumplir de número de flujos de trabajo fallidos en la última semana.
 
 */
+
+
+
+
+/*
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    pullRequests(last: 10, states: MERGED) {
+      nodes {
+        number
+        title
+        checksUrl
+        commits(last: 1) {
+          nodes {
+            commit {
+              statusCheckRollup {
+                state
+                contexts(last: 5) {
+                  nodes {
+                    __typename
+                    ... on CheckRun {
+                      name
+                      conclusion
+                      detailsUrl
+                      completedAt
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/

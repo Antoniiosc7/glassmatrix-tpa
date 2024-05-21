@@ -72,3 +72,26 @@ TLTP11: representa el límite de tiempo medio aceptado.
     }
   }
 }
+
+/*
+
+query {
+  repository(name: "tp-testbench", owner: "antoniiosc7") {
+    pullRequests(first: 100, states: OPEN) {
+      nodes {
+        title
+        number
+        createdAt
+        reviews(first: 100) {
+          nodes {
+            author {
+              login
+            }
+            createdAt
+          }
+        }
+      }
+    }
+  }
+}
+*/

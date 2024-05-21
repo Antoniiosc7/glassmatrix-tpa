@@ -75,3 +75,31 @@ MTWRTP10 (Maximum time without reviewer): Representa el máximo tiempo que puede
     }
   }
 }
+
+/* GQL:
+ La API de GitHub GraphQL no proporciona un campo createdAt para los ReviewRequest,
+ lo que significa que no podemos obtener directamente el momento en que se asignó un revisor
+ a una pull request a través de la API de GitHub GraphQL.
+
+query {
+  repository(name: "tp-testbench", owner: "antoniiosc7") {
+    pullRequests(first: 100, states: OPEN) {
+      nodes {
+        title
+        number
+        createdAt
+        reviewRequests(first: 100) {
+          nodes {
+            requestedReviewer {
+              __typename
+              ... on User {
+                login
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/

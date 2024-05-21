@@ -27,3 +27,100 @@ UTP9 = 25%
 UTP9: representa el umbral de porcentaje mínimo de ramas que cumplen con la frecuencia establecida.
 
 */
+
+{
+  "config": {
+    "scopeManager": "http://host.docker.internal:5700/api/v1/scopes/development"
+  },
+  "metric": {
+    "computing": "actual",
+    "element": "number",
+    "event": {
+      "githubGQL": {
+        "custom": {
+          "type": "graphQL",
+          "title": "Get closed pull requests",
+          "steps": {
+            "0": {
+              "type": "queryGetObject",
+              "query": "{\r\n  repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {\r\n    pullRequests(first: 100, baseRefName: \"main\") {\r\n      pageInfo {\r\n        endCursor\r\n        hasNextPage\r\n      }\r\n      nodes {\r\n        bodyText\r\n        number\r\n        state\r\n        createdAt\r\n        author {\r\n          login\r\n        }\r\n        mergedAt\r\n        mergedBy {\r\n          login\r\n        }\r\n        additions\r\n        comments(first: 50) {\r\n          nodes {\r\n            author {\r\n              login\r\n            }\r\n            bodyText\r\n            createdAt\r\n          }\r\n        }\r\n        reviews(first: 30) {\r\n          nodes {\r\n            state\r\n            createdAt\r\n            bodyText\r\n            author {\r\n              login\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+            },
+            "1": {
+              "type": "objectGetSubObjects",
+              "location": "data.repository.pullRequests.nodes"
+            },
+            "2": {
+              "type": "runScript",
+              "variables": {},
+              "script": "module.exports.generic = function getPullRequests(inputData,variables)  {\r\n    let totalPullRequests = inputData.length;\r\n    let rejectedPullRequests = inputData.filter(pullRequest => pullRequest.state === 'CLOSED').length;\r\n\r\n    return { totalPullRequests, rejectedPullRequests };\r\n}"
+            }
+          }
+        }
+      }
+    },
+    "scope": {
+      "project": "TFG-GH-antoniiosc7_Glassmatrix",
+      "class": "TFG",
+      "member": "*"
+    },
+    "window": {
+      "type": "static",
+      "period": "hourly",
+      "initial": "2024-05-12T17:00:00.000Z",
+      "from": "2024-05-12T17:00:00.000Z",
+      "end": "2024-05-13T17:59:00.000Z",
+      "timeZone": "America/Los_Angeles"
+    }
+  }
+}
+
+/*
+
+Para obtener el número de pull requests rechazadas, hay que ver pull requests con el estado "CLOSED".
+ Sin embargo, todas las pull requests tienen el estado "MERGED", lo que
+ significa que fueron aceptadas y fusionadas en la rama principal.
+
+query {
+  repository(name: "tp-testbench", owner: "Antoniiosc7") {
+    pullRequests(first: 100, baseRefName: "main") {
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+      nodes {
+        bodyText
+        number
+        state
+        createdAt
+        author {
+          login
+        }
+        mergedAt
+        mergedBy {
+          login
+        }
+        additions
+        comments(first: 50) {
+          nodes {
+            author {
+              login
+            }
+            bodyText
+            createdAt
+          }
+        }
+        reviews(first: 30) {
+          nodes {
+            state
+            createdAt
+            bodyText
+            author {
+              login
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/
