@@ -28,3 +28,36 @@ UTP8: representa el umbral de tanto por uno mínimo.
 NPTP8: número de Push mínimos antes del P/R.
 
 */
+
+/*
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    pullRequests(states: OPEN, first: 100) {
+      nodes {
+        headRefName
+        commits(first: 1) {
+          totalCount
+        }
+      }
+    }
+  }
+}
+
+Devuelve:
+{
+  "data": {
+    "repository": {
+      "pullRequests": {
+        "nodes": [
+          {
+            "headRefName": "ramatestToday223",
+            "commits": {
+              "totalCount": 1
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+*/

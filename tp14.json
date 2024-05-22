@@ -25,3 +25,38 @@ UTP14= 90
 UTP14 representa el umbral mínimo de flujos de trabajo que se deberán de ejecutar automáticamente con respecto al total de pull requests realizadas en la rama principal.
 
 */
+
+/*
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    pullRequests(last: 100, states: MERGED) {
+      nodes {
+        number
+        title
+        checksUrl
+        commits(last: 1) {
+          nodes {
+            commit {
+              statusCheckRollup {
+                state
+                contexts(last: 5) {
+                  nodes {
+                    __typename
+                    ... on CheckRun {
+                      name
+                      conclusion
+                      detailsUrl
+                      startedAt
+                      completedAt
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/

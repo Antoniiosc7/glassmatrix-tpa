@@ -28,3 +28,8 @@ MNBWTTP21 = 1
 
 MNBWTTP21 (Maximum Number of Bug Issues without Test Associated) representa el número máximo de bugs que pueden estar sin tener un test asociado.
 */
+
+
+/*
+COMO MIDO ESTO?
+*/

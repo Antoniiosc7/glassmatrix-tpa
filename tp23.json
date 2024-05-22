@@ -26,3 +26,8 @@ UTP23= 25
 UTP23 representa el umbral máximo de releases que pueden ser implementadas con bugs. 
 
 */
+
+
+/*
+No se como implementar esto? Una PR que cierra una issue de tipo bug?
+*/

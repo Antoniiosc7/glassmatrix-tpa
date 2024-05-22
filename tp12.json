@@ -28,6 +28,46 @@ UTP12= 10 minutos
 UTP12: representa el umbral de tiempo máximo permitido para la ejecución de las pruebas.
 */
 
+
+/*
+Esto devuelve el started at y el completed at, los restas y saco el tiempo de ejecucion.
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    pullRequests(last: 100, states: MERGED) {
+      nodes {
+        number
+        title
+        checksUrl
+        commits(last: 1) {
+          nodes {
+            commit {
+              statusCheckRollup {
+                state
+                contexts(last: 5) {
+                  nodes {
+                    __typename
+                    ... on CheckRun {
+                      name
+                      conclusion
+                      detailsUrl
+                      startedAt
+                      completedAt
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/
+
+
+
+/* ESTO NO FUNCIONA
 {
   "config": {
     "scopeManager": "http://host.docker.internal:5700/api/v1/scopes/development"
@@ -72,3 +112,4 @@ UTP12: representa el umbral de tiempo máximo permitido para la ejecución de la
     }
   }
 }
+*/

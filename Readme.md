@@ -10,3 +10,5 @@ Estructura de archivos:
    3. Query GitHub GraphQL API.
 
 También está el archivo general que contiene todos los tps y sus garantias (TPA.json).
+
+Las querys de Github GraphQL API, se pueden ejecutar en https://developer.github.com/v4/explorer/

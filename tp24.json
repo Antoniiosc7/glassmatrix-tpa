@@ -28,3 +28,18 @@ NMHBTP24 representa el número máximo de horas que el bug podría existir sin s
 UTP23 sería el umbral de casos en los que se espera que se cumpla la condición anterior.
 
 */
+
+/*
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    issues(filterBy: { labels: "bug" }, first: 100) {
+      totalCount
+      nodes {
+        createdAt
+        closedAt
+        state
+      }
+    }
+  }
+}
+*/

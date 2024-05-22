@@ -24,3 +24,39 @@ TFTTP22= 3600s
 TFTTP22 representa el número máximo de segundos que puede transcurrir entre que se hace un push o se cierra una pull request en la rama principal y el término del flujo de trabajo.
 
 */
+
+/*
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    pullRequests(last: 5, states: MERGED) {
+      nodes {
+        number
+        title
+        checksUrl
+        closedAt
+        commits(last: 100) {
+          nodes {
+            commit {
+              statusCheckRollup {
+                state
+                contexts(last: 100) {
+                  nodes {
+                    __typename
+                    ... on CheckRun {
+                      name
+                      conclusion
+                      detailsUrl
+                      startedAt
+                      completedAt
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/

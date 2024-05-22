@@ -29,3 +29,39 @@ MBTTTP16= 1
 MBTTTP16 (Minimum block test triggered): Representa la cantidad mínima de bloques de tests que se deben ejecutar tras realizar un push.
 
 */
+
+
+/*
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    pullRequests(last: 100, states: MERGED) {
+      nodes {
+        number
+        title
+        checksUrl
+        commits(last: 1) {
+          nodes {
+            commit {
+              statusCheckRollup {
+                state
+                contexts(last: 100) {
+                  nodes {
+                    __typename
+                    ... on CheckRun {
+                      name
+                      conclusion
+                      detailsUrl
+                      startedAt
+                      completedAt
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/

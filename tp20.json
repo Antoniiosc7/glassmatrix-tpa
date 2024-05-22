@@ -23,4 +23,42 @@ Parámetros:
 NMHTP20= 48h
 
 NMHTP20 representa el número máximo de horas que se debe tardar para resolver un flujo de trabajo fallido.
-*/	
+*/
+
+
+/*
+hay que medir el tiempo entre el started at con conclusion failed hasta el proximo completedAt con conclusion success
+
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    pullRequests(last: 5, states: MERGED) {
+      nodes {
+        number
+        title
+        checksUrl
+        commits(last: 1) {
+          nodes {
+            commit {
+              statusCheckRollup {
+                state
+                contexts(last: 100) {
+                  nodes {
+                    __typename
+                    ... on CheckRun {
+                      name
+                      conclusion
+                      detailsUrl
+                      startedAt
+                      completedAt
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/

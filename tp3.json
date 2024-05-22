@@ -22,3 +22,28 @@ UTP3= 1
 PMVTP3 representaría el periodo de “máximo” de vida que esperamos de una rama activa.
 UTP3 sería el umbral en tanto por uno de casos de margen de error.
 */
+
+
+/*
+
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    refs(refPrefix: "refs/heads/", first: 100) {
+      nodes {
+        name
+        target {
+          ... on Commit {
+            history(first: 1) {
+              edges {
+                node {
+				  committedDate
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/

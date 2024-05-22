@@ -23,3 +23,525 @@ Se crean ramas temporales comunes para tareas específicas.
 
 
 */
+
+
+/*
+
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    collaborators {
+      totalCount
+    }
+    refs(refPrefix: "refs/heads/", first: 100) {
+      nodes {
+        name
+        target {
+          ... on Commit {
+            history(first: 1) {
+              edges {
+                node {
+                  committedDate
+                  pushedDate
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+{
+  "data": {
+    "repository": {
+      "collaborators": {
+        "totalCount": 2
+      },
+      "refs": {
+        "nodes": [
+          {
+            "name": "321443211234",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-01T17:48:31Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "3231",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-03-19T17:14:46Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "Antoniiosc7-patch-1",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-05-18T23:54:54Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "Antoniiosc7-patch-2",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-05-21T16:02:15Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "Antoniiosc7-patch-3",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-05-21T16:03:29Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "hola",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-17T20:15:43Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "main",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-05-22T17:00:57Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "nombreDeLaRa3132123123ma",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-03-19T16:37:14Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "nombreDeLaRam32123a",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-17T16:06:47Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "nombreDeLaRam123212a",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-03-19T16:37:14Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "nombreDeLaRama_adios",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-03-19T16:37:14Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "nombreDeLaRama_adios2",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-17T20:14:22Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "nombreDeLaRama",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-03-19T16:37:14Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "nombreDeLaRama2",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-03-19T16:37:14Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "nombreDeLaRama3333",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-03-19T16:37:14Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "nombreDeLaRama333213",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-03-19T16:37:14Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramaHoy",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-25T13:07:02Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramaHoy2",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-25T13:06:59Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramaHoy34",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-05-03T08:22:48Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramaHoy3433",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-05-05T14:24:58Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatest",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-05-13T18:21:13Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatest2",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-20T11:49:05Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatest4",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-20T11:58:18Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatest5",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-20T15:10:41Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatest44",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-20T15:29:51Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatest445",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-24T21:20:59Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatest4455",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-24T21:22:42Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatest44555",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-24T21:24:06Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatest445552",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-04-24T21:25:30Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatestToday",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-05-12T21:24:36Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatestToday222",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-05-13T15:53:31Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "ramatestToday223",
+            "target": {
+              "history": {
+                "edges": [
+                  {
+                    "node": {
+                      "committedDate": "2024-05-22T17:00:44Z",
+                      "pushedDate": null
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+*/

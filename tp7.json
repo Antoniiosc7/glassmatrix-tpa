@@ -29,3 +29,32 @@ NPTP7 : representa el número de pushes previos al pull request.
 
 
 */
+
+
+/*
+
+Devuelvo los colaboradores y cuando recibio el ultimo push
+query {
+  repository(owner: "Antoniiosc7", name: "tp-testbench") {
+    collaborators {
+      totalCount
+    }
+    refs(refPrefix: "refs/heads/", first: 100) {
+      nodes {
+        name
+        target {
+          ... on Commit {
+            history(first: 1) {
+              edges {
+                node {
+                  committedDate
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/
