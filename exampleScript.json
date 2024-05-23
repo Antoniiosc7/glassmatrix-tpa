@@ -1,0 +1,59 @@
+{
+  repository(name: "%PROJECT.github.repository%", owner: "%PROJECT.github.repoOwner%") {
+    pullRequests(first: 100) {
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+      nodes {
+        bodyText
+        number
+        state
+        createdAt
+        author {
+          login
+        }
+        mergedAt
+        mergedBy {
+          login
+        }
+        additions
+        comments(first: 50) {
+          nodes {
+            author {
+              login
+            }
+            bodyText
+            createdAt
+          }
+        }
+        reviews(first: 30) {
+          nodes {
+            state
+            createdAt
+            bodyText
+            author {
+              login
+            }
+          }
+        }
+      }
+    }
+  }
+}
+},
+"1": {
+"type": "objectGetSubObjects",
+"location": "data.repository.pullRequests.nodes"
+},
+
+module.exports.generic = function getPullRequests(inputData,variables)  {
+    let pullRequestsMergedAndOpen = []
+    for (let pullRequest of inputData) {
+        if (pullRequest.author.login === '%MEMBER.github.username%') continue;
+        if (pullRequest.state === 'OPEN' || pullRequest.state === 'MERGED' && Math.max(new Date(variables.from), new Date(pullRequest.createdAt)) <= Math.min(new Date(variables.to), new Date(pullRequest.mergedAt))) {
+            pullRequestsMergedAndOpen.push(pullRequest)
+        }
+    }
+    return pullRequestsMergedAndOpen;
+}

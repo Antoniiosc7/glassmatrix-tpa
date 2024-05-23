@@ -24,7 +24,50 @@ TFTTP22= 3600s
 TFTTP22 representa el número máximo de segundos que puede transcurrir entre que se hace un push o se cierra una pull request en la rama principal y el término del flujo de trabajo.
 
 */
-
+{
+  "config": {
+    "scopeManager": "http://host.docker.internal:5700/api/v1/scopes/development"
+  },
+  "metric": {
+    "computing": "actual",
+    "element": "number",
+    "event": {
+      "githubGQL": {
+        "custom": {
+          "type": "graphQL",
+          "title": "tiempos entre una pull request y la ejecución del workflow",
+          "steps": {
+            "0": {
+              "type": "queryGetObject",
+              "query": " {\n  repository(name: \"%PROJECT.github.repository%\", owner:  \"%PROJECT.github.repoOwner%\") {\r\n    pullRequests(last: 5, states: MERGED) {\r\n      nodes {\r\n        number\r\n        title\r\n        checksUrl\r\n        closedAt\r\n        commits(last: 100) {\r\n          nodes {\r\n            commit {\r\n              statusCheckRollup {\r\n                state\r\n                contexts(last: 100) {\r\n                  nodes {\r\n                    __typename\r\n                    ... on CheckRun {\r\n                      name\r\n                      conclusion\r\n                      detailsUrl\r\n                      startedAt\r\n                      completedAt\r\n                    }\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+            },
+            "1": {
+              "type": "objectGetSubObjects",
+              "location": "data.repository.pullRequests.nodes"
+            },
+            "2": {
+              "type": "runScript",
+              "variables": {},
+              "script": "module.exports.generic = function getPullRequests(inputData,variables)  {\r\n    let pullRequestsMergedAndOpen = []\r\n    for (let pullRequest of inputData) {\r\n\r\n        if (pullRequest.state === 'OPEN' || pullRequest.state === 'MERGED') {\r\n            let pullRequestWithNodes = {\r\n                ...pullRequest,\r\n                nodes: pullRequest.commits\r\n            };\r\n            pullRequestsMergedAndOpen.push(pullRequestWithNodes)\r\n        }\r\n    }\r\n\r\n    return pullRequestsMergedAndOpen;\r\n}"            }
+          }
+        }
+      }
+    },
+    "scope": {
+      "project": "TFG-GH-antoniiosc7_Glassmatrix",
+      "class": "TFG",
+      "member": "*"
+    },
+    "window": {
+      "type": "static",
+      "period": "hourly",
+      "initial": "2024-05-12T17:00:00.000Z",
+      "from": "2024-05-12T17:00:00.000Z",
+      "end": "2024-05-13T17:59:00.000Z",
+      "timeZone": "America/Los_Angeles"
+    }
+  }
+}
 /*
 query {
   repository(owner: "Antoniiosc7", name: "tp-testbench") {
